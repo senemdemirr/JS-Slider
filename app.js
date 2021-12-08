@@ -18,10 +18,23 @@ function changeImage(){
 
 nextBtn.addEventListener('click' , function change(){
     counter++;
+    resetInterval();
     changeImage();
 } );
 
 prevBtn.addEventListener('click' , function change(){
     counter--;
+    resetInterval();
     changeImage();
 } );
+
+let interval = setInterval(run ,1500);
+
+function run(){
+    counter++;
+    changeImage();
+}
+function resetInterval(){
+    clearInterval(interval);
+    interval = setInterval(run , 1500);
+}
